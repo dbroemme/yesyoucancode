@@ -59,3 +59,4 @@ yarn-debug.log*
 .yarn-integrity
 
 problems
+log
