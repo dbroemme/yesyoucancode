@@ -1,4 +1,5 @@
 require_relative "./filequeue"
+require_relative "./yycc"
 require 'net/http'
 require 'json'
 require 'date'
@@ -30,43 +31,43 @@ def days_from_now(date)
 end
 ####################
 def tell_me_the_price(text)
-    puts "The price of Bitcoin is $#{text}"
+    yycc_puts "The price of Bitcoin is $#{text}"
 end
 
 def tell_me(text)
-    puts text
+    yycc_puts text
 end
 ####################
 def yycc_puts(s)
-    f = File.open(__dir__ + "/../log/out.txt",'a')
-    f.puts s
-    f.close
+    if MANAGED_RUN_MODE
+      f = File.open(__dir__ + "/../log/out.txt",'a')
+      f.puts s
+      f.close
+    else
+      puts s 
+    end
 end
 
 def yycc_gets
-    done = false
-    count = 1
-    value = nil
-    @write_fq.push("gets")
-    while not done
-      puts "Checking #{count}"
-      value = @read_fq.pop
-      if value.nil?
-        puts "did not get anything yet"
-        sleep 2
-      else
-        puts "Got #{value}."
-        done = true
-      end
-      count = count + 1
+    if MANAGED_RUN_MODE
+        done = false
+        count = 1
+        value = nil
+        @write_fq.push("gets")
+        while not done
+            yycc_puts "Checking #{count}"
+            value = @read_fq.pop
+            if value.nil?
+                yycc_puts "did not get anything yet"
+                sleep 2
+            else
+                yycc_puts "Got #{value}."
+                done = true
+            end
+            count = count + 1
+        end
+        return value
+    else
+        return gets
     end
-    value
 end
-####################
-
-#require_relative 'helpers'
-#BLOCKCHAIN_WEBSITE = "https://blockchain.info/ticker"
-#data = get_data_from_website(BLOCKCHAIN_WEBSITE)
-#price = get_price_in_usd(data)
-#tell_me_the_price(price)
-
