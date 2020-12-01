@@ -3,7 +3,6 @@ require 'net/http'
 require 'json'
 require 'date'
 
-#$stdout.reopen(__dir__ + "/out.txt", "w")
 @write_fq = FileQueue.new("r")
 @read_fq = FileQueue.new("j")
 
@@ -39,7 +38,7 @@ def tell_me(text)
 end
 ####################
 def yycc_puts(s)
-    f = File.open(__dir__ + "/out.txt",'a')
+    f = File.open(__dir__ + "/../log/out.txt",'a')
     f.puts s
     f.close
 end
