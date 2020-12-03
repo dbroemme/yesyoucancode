@@ -3,18 +3,6 @@ require_relative 'helpers'  # DO NOT REMOVE THIS LINE
 #      Challenge #1: Get the price of Bitcoin       #
 #####################################################
 
-# We need to provide instructions to our friend to get
-# the current price of Bitcoin. However, our friend
-# doesn't know how to do that, so we need to tell
-# them explicitly. We know that there is a website
-# that has the data.
-
-# Our instructions are as follows:
-#
-#   1. Get the current data from the website
-#   2. From the data, get the 15 min price in U.S. Dollars
-#   3. Tell me what the price is
-
 # The website defined below has pricing data on Bitcoin
 # You can use the name BLOCKCHAIN_WEBSITE as a parameter
 # for the get_data_from_website() function
