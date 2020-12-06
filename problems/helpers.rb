@@ -65,13 +65,13 @@ def yycc_gets
             value = @read_fq.pop
             if value.nil?
                 #yycc_puts "did not get anything yet"
-                sleep 1
+                sleep 0.5
             else
                 #yycc_puts "Got #{value}."
                 done = true
             end
             count = count + 1
-            if count > 300
+            if count > 600
                 done = true
                 yycc_puts "Stopped waiting for input after 5 minutes."
                 value = "no data entered"
