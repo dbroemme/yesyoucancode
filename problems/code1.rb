@@ -1,8 +1,8 @@
 require_relative 'helpers'  # DO NOT REMOVE THIS LINE
 #####################################################
-#      Challenge #1: Get the price of Bitcoin       #
+#   Challenge #1: Get the price of Bitcoin
 #####################################################
-
+ 
 # The website defined below has pricing data on Bitcoin
 # You can use the name BLOCKCHAIN_WEBSITE as a parameter
 # for the get_data_from_website() function

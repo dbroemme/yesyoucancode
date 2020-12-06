@@ -37,6 +37,12 @@ end
 def tell_me(text)
     yycc_puts text
 end
+
+def ask_me(text)
+    yycc_puts text
+    yycc_gets.chomp
+end
+
 ####################
 def yycc_puts(s)
     if MANAGED_RUN_MODE
@@ -55,16 +61,21 @@ def yycc_gets
         value = nil
         @write_fq.push("gets")
         while not done
-            yycc_puts "Checking #{count}"
+            #yycc_puts "Checking #{count}"
             value = @read_fq.pop
             if value.nil?
-                yycc_puts "did not get anything yet"
-                sleep 2
+                #yycc_puts "did not get anything yet"
+                sleep 1
             else
-                yycc_puts "Got #{value}."
+                #yycc_puts "Got #{value}."
                 done = true
             end
             count = count + 1
+            if count > 300
+                done = true
+                yycc_puts "Stopped waiting for input after 5 minutes."
+                value = "no data entered"
+            end
         end
         return value
     else

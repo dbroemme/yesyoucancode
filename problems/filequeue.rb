@@ -71,6 +71,6 @@ class FileQueue
   end
 
   def gen_file_name(count)
-    __dir__ + "../log/#{@prefix}#{count}"
+    __dir__ + "/../log/#{@prefix}#{count}"
   end
 end
