@@ -4,9 +4,6 @@ require 'net/http'
 require 'json'
 require 'date'
 
-@write_fq = FileQueue.new("r")
-@read_fq = FileQueue.new("j")
-
 def get_data_from_website(url)
     Net::HTTP.get(URI(url))
 end
@@ -30,9 +27,9 @@ def days_from_now(date)
     date.yday - now.yday
 end
 ####################
-def tell_me_the_price(text)
-    yycc_puts "The price of Bitcoin is $#{text}"
-end
+
+@write_fq = FileQueue.new("r")
+@read_fq = FileQueue.new("j")
 
 def tell_me(text)
     yycc_puts text
