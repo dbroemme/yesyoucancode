@@ -1,5 +1,5 @@
 			   data.addRows([
 				   ['1. Bitcoin Price',   '', 'Get the price of Bitcoin'],
-				   ['2. Seconds in a Day', '1. Bitcoin Price', ''],
-				   ['3. Personal greeting', '2. Seconds in a Day', '']
+				   ['2. Personal greeting', '1. Bitcoin Price', ''],
+				   ['3. Days until birthday', '2. Personal greeting', '']
 			   ]);

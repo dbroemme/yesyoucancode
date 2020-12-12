@@ -1,4 +1,5 @@
 require_relative 'helpers'  # DO NOT REMOVE THIS LINE
 
-name = ask_me("What is your name?")
-tell_me("Hello #{name}")
+birthday = ask_me("When is your birthday (MM/DD)?")
+days_left = calculate_days_until(birthday)
+tell_me("There are #{days_left} days left.")

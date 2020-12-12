@@ -1,13 +1,17 @@
-<span style="color: #40E0D0;">Challenge #2: Display the number of seconds in a day</span>
-<p style="color: #6495ED;">We need to calculate the number of seconds in a day
-and then display it on the screen.
-Calculator instructions in Ruby take the form:<br/>
-result = value operator value<br/>
-For example:<br/>
-secs_in_hour = 60 * 60</p>
+<span style="color: #40E0D0;">Challenge 2: Display a personal greeting</span>
+<p style="color: #6495ED;">We need to ask the user for their name, and then display
+a personal greeting on the screen.<br/>
+Use the <span style="color: #FF7F50;">ask_me</span> instruction
+to get the user's name. Assign the response to a variable.<br/>
+Use the <span style="color: #FF7F50;">create_personal_greeting</span> instruction
+to create a string that says Hello #{name}.<br/>
+Once again, use the <span style="color: #FF7F50;">tell_me</span> instruction
+to display the greeting string on the screen.</p>
 <ol style="color: #CCCCFF;">
-<li>Calculate seconds in an hour and remember the result</li>
-<li>Multiple that value times 24 to get seconds in a day</li>
-<li>Display the final result</li>
+<li>Ask the user for their name and remember the answer</li>
+<li>Create the personal greeting string using their name</li>
+<li>Display the personal greeting on the screen</li>
 </ol><span style="color: #40E0D0;">Instruction Library</span><br/>
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">ask_me</span>(<span style="color: #FFBF00;">prompt</span>)</pre>Display the given prompt on the screen, then wait for the user to type a value and hit return
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">create_personal_greeting</span>(<span style="color: #FFBF00;">name</span>)</pre>Creates a string which says Hello #{name}
 <pre><span style="color: #FFBF00;">void</span> <span style="color: #FF7F50;">tell_me</span>(<span style="color: #FFBF00;">value</span>)</pre>displays the value on the screen

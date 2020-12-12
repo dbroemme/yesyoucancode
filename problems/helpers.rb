@@ -14,6 +14,24 @@ def get_price_in_usd(data)
     return price_in_usd
 end
 
+def create_personal_greeting(name)
+    "Hello #{name}"
+end
+
+def calculate_days_until(birthday)
+    # The birthday is a string with the format MM/DD
+    month = birthday[0..1]
+    day = birthday[3..4]
+    now = Time.now
+    bday = Time.new(now.year, month.to_i, day.to_i)
+    if bday < now
+        # We need to set the year to next year
+        bday = Time.new(now.year + 1, month.to_i, day.to_i)
+    end
+    # Now get the difference in days between the two
+    ((bday - now).to_i / (24 * 60 * 60)) + 1
+end
+
 def round(number_as_string)
     number_as_strint.to_f.round
 end
@@ -26,7 +44,14 @@ def days_from_now(date)
     now = Date.today
     date.yday - now.yday
 end
-####################
+
+#############################################################
+# Below this point are functions used by the Yes You Can Code
+# helper that deal with input and output, so the helper
+# can show the output in the window and compare it to
+# expected results. It also helps deal with collecting
+# input from the user.
+#############################################################
 
 @write_fq = FileQueue.new("r")
 @read_fq = FileQueue.new("j")

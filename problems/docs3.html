@@ -1,14 +1,17 @@
-<span style="color: #40E0D0;">Challenge 3: Display a personal greeting</span>
-<p style="color: #6495ED;">We need to ask the user for their name, and then tell
-them "Hello #{name}" on the screen.<br/><br/>
-Use the <span style="color: #FF7F50;">ask_me</span> function
-to get the user's name. Assign the response to a variable.<br/><br/>
-You can create a dynamic String in Ruby using the following format.
-Note that the variable name is enclosed within this notation: #{___}<br/>
-"static text and a #{variable_name}"</p>
+<span style="color: #40E0D0;">Challenge 3: Days until your Birthday</span>
+<p style="color: #6495ED;">We want to see how many days are left until our birthday.<br/>
+Use the <span style="color: #FF7F50;">ask_me</span> instruction
+to get the user's birthday. We will use the date format MM/DD.
+For example, July 4th would be 07/04.<br/>
+Use the <span style="color: #FF7F50;">calculate_days_until</span> instruction
+to calculate how many days are left.<br/>
+Use the <span style="color: #FF7F50;">tell_me</span> instruction
+to display "There are #{number} days left."</p>
 <ol style="color: #CCCCFF;">
-<li>Ask the user for their name and remember the answer</li>
-<li>Display "Hello #{name}" to the screen</li>
+<li>Ask the user for their birthday and remember the answer</li>
+<li>Calculate how many days are left until that day of the year</li>
+<li>Display how many days are left on the screen</li>
 </ol><span style="color: #40E0D0;">Instruction Library</span><br/>
-<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">ask_me</span>(<span style="color: #FFBF00;">prompt</span>)</pre>Display the prompt on the screen, then wait for the user to type a value and hit return
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">ask_me</span>(<span style="color: #FFBF00;">prompt</span>)</pre>Display the given prompt on the screen, then wait for the user to type a value and hit return
+<pre><span style="color: #FFBF00;">int</span> <span style="color: #FF7F50;">calculate_days_until</span>(<span style="color: #FFBF00;">date_string</span>)</pre>Given a date string formatted as MM/DD, returns the number of days left until that date
 <pre><span style="color: #FFBF00;">void</span> <span style="color: #FF7F50;">tell_me</span>(<span style="color: #FFBF00;">value</span>)</pre>displays the value on the screen
