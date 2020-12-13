@@ -4,5 +4,6 @@
 				   ['3. Days until birthday', '2. Personal greeting', ''],
 				   ['4. Buy decision', '1. Bitcoin Price', ''],
 				   ['5. Countdown timer', '4. Buy decision', ''],
-				   ['6. Quiz game', '1. Bitcoin Price', '']
+				   ['6. Quiz game', '1. Bitcoin Price', ''],
+				   ['7. Calculator', '6. Quiz game', '']
 			   ]);
