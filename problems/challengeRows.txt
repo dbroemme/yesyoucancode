@@ -5,5 +5,6 @@
 				   ['4. Buy decision', '1. Bitcoin Price', ''],
 				   ['5. Countdown timer', '4. Buy decision', ''],
 				   ['6. Quiz game', '1. Bitcoin Price', ''],
-				   ['7. Calculator', '6. Quiz game', '']
+				   ['7. Calculator', '6. Quiz game', ''],
+				   ['8. Pay raise', '7. Calculator', '']
 			   ]);
