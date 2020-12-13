@@ -1,0 +1,13 @@
+<span style="color: #40E0D0;">Challenge 4: Decide whether to buy Bitcoin</span>
+<p style="color: #6495ED;">Earlier we learned the instructions to get the price of Bitcoin.
+Now we want to create a reusable instruction for our friend
+that will decide whether we want to buy Bitcoin based on the
+current price. Our instructions are as follows:</p>
+<ol style="color: #CCCCFF;">
+<li>Get the current price o Bitcoin in U.S. Dollars</li>
+<li>Decide to buy if the cost is below a given price</li>
+<li>Tell me whether the decision is to buy or wait</li>
+</ol><span style="color: #40E0D0;">Instruction Library</span><br/>
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">get_data_from_website</span>(<span style="color: #FFBF00;">address</span>)</pre>address is a website, for example http://www.example.com
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">get_price_in_usd</span>(<span style="color: #FFBF00;">data</span>)</pre>data is a JSON string with the format { "USD" : {"15m" : 16766.22, ... }}
+<pre><span style="color: #FFBF00;">void</span> <span style="color: #FF7F50;">tell_me</span>(<span style="color: #FFBF00;">value</span>)</pre>displays value on the screen
