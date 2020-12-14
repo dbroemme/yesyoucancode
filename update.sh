@@ -1,4 +1,4 @@
 git stash clear
 git stash
 git pull --rebase
-git apply
+git stash apply
