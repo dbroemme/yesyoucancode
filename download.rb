@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 ZIP_FILE = "./mycode.zip"
 
 if ARGV.length == 0
