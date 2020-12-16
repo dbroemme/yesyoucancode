@@ -9,6 +9,6 @@
 				   ['8. Pay raise', '7. Calculator', ''],
 				   ['9. Blackjack: Deal', '8. Pay raise', ''],
 				   ['10. Blackjack: Play', '9. Blackjack: Deal', ''],
-				   ['11. Bonus Challenge One', '8. Pay raise', ''],
+				   ['11. Bonus Challenge One', '1. Bitcoin Price', ''],
 				   ['12. Bonus Challenge Two', '11. Bonus Challenge One', ''],
 			   ]);
