@@ -4,6 +4,22 @@ and goes down to zero. At each step, we will display a
 message "#{seconds} seconds left"
 We wait one second in between each step, for a 
 total of 10 seconds. At the end, we display "Done"</p>
+<span style="color: #40E0D0;">Loop Structures</span>
+<pre>
+10.<span style="color: #FF7F50;">times</span> <span style="color: #FFBF00;">do</span>
+    tell_me "Block of code in a loop"
+<span style="color: #FFBF00;">end</span>
+
+x = 1
+<span style="color: #FFBF00;">while</span> x <= 10
+    tell_me "While loop #{x}"
+    x = x + 1
+<span style="color: #FFBF00;">end</span>
+ 
+(1..10).<span style="color: #FF7F50;">each</span> <span style="color: #FFBF00;">do</span> |n|
+    tell_me "This is iteration #{n}"
+<span style="color: #FFBF00;">end</span>
+</pre>
 <ol style="color: #CCCCFF;">
 <li>Create a loop that will execute instructions 10 times</li>
 <li>    Loop instruction 1): Print the current count</li>

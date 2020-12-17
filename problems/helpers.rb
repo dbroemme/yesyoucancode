@@ -32,17 +32,87 @@ def calculate_days_until(birthday)
     ((bday - now).to_i / (24 * 60 * 60)) + 1
 end
 
-def round(number_as_string)
-    number_as_strint.to_f.round
-end
-####################
-def open_the_calendar(year, month, day)
-    Date.new(year, month, day)
+#############################################################
+# Objects and constants used in Blackjack
+#############################################################
+
+# Array Index  0    1    2    3    4    5    6    7     8     9   10   11   12
+CARD_RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+CARD_VALUE = [ 2,   3,   4,   5,   6,   7,   8,   9,   10,   10,  10,  10,  11]
+CARD_SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+ACE_RANK = 12
+
+class Card
+    # The rank and suit are stored as integers that reference the constant
+    # arrays above when they need to be displayed.
+    attr_accessor :rank
+    attr_accessor :suit
+
+    def initialize(rank, suit)
+        @rank = rank
+        @suit = suit
+    end
+
+    def value
+        CARD_VALUE[@rank]
+    end
+
+    def is_ace
+        @rank == ACE_RANK
+    end
+
+    def to_display
+        "#{CARD_RANKS[@rank]} #{CARD_SUITS[@suits]}"
+    end
+
 end
 
-def days_from_now(date)
-    now = Date.today
-    date.yday - now.yday
+class Deck
+    attr_accessor :cards
+
+    def initialize
+        (0..12).each do |current_rank|
+            (0..3).each do |current_suit|
+              @cards << Card.new(current_rank, current_suit)
+            end
+        end
+    end
+
+    def shuffle
+        @cards.shuffle!
+    end
+
+    def deal
+        @cards.pop
+    end
+
+    def display
+        @cards.each do |card|
+            tell_me(card.to_display)
+        end
+    end
+end
+
+class Hand
+    attr_accessor :cards
+
+    def add_card(card)
+        @cards << card 
+    end
+
+    def value
+        total = 0
+        @cards.each do |card|
+            total = total + card.value
+        end
+        total
+    end
+
+    def display
+        @cards.each do |card|
+            tell_me(card.to_display)
+        end
+    end
 end
 
 #############################################################
