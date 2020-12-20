@@ -8,24 +8,13 @@ CARD_RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 CARD_VALUE = [ 2,   3,   4,   5,   6,   7,   8,   9,   10,   10,  10,  10,  11]
 CARD_SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 </pre>
-The following classes are defined for you.
+The following class is defined to help you get started.
 <pre><span style="color: #40E0D0;">Card</span>
   <span style="color: #FFBF00;">@rank</span> <span style="color: #FFBF00;">int</span>  # 0-12 references CARD_RANKS
   <span style="color: #FFBF00;">@suit</span> <span style="color: #FFBF00;">int</span>  # 0-3  references CARD_SUITS
   <span style="color: #FFBF00;">int</span> <span style="color: #FF7F50;">value</span>()
   <span style="color: #FFBF00;">boolean</span> <span style="color: #FF7F50;">is_ace</span>()
-  <span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">to_display</span>()
-<span style="color: #40E0D0;">Deck</span>
-  <span style="color: #FFBF00;">@cards</span>     # array of Card objects
-  <span style="color: #FF7F50;">shuffle</span>()
-  <span style="color: #FFBF00;">Card</span> <span style="color: #FF7F50;">deal</span>()
-  <span style="color: #FF7F50;">display</span>()
-<span style="color: #40E0D0;">Hand</span>
-  <span style="color: #FFBF00;">@cards</span>     # array of Card objects
-  <span style="color: #FFBF00;">int</span> <span style="color: #FF7F50;">value</span>()
-  <span style="color: #FF7F50;">add_card</span>(<span style="color: #FFBF00;">Card</span>)
-  <span style="color: #FF7F50;">display</span>()
-  <span style="color: #FF7F50;">display</span>()
+  <span style="color: #FFBF00;">void</span> <span style="color: #FF7F50;">display</span>()
 </pre></p>
 <ol style="color: #CCCCFF;">
 <li>Create an instance of a Deck of cards</li>
@@ -33,4 +22,5 @@ The following classes are defined for you.
 <li>Deal two cards to each player</li>
 <li>Display the hands</li>
 </ol><span style="color: #40E0D0;">Instruction Library</span><br/>
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">ask_me</span>(<span style="color: #FFBF00;">prompt</span>)</pre>Display the given prompt on the screen, then wait for the user to type a value and hit return
 <pre><span style="color: #FFBF00;">void</span> <span style="color: #FF7F50;">tell_me</span>(<span style="color: #FFBF00;">value</span>)</pre>displays value on the screen
