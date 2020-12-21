@@ -1,0 +1,35 @@
+<span style="color: #40E0D0;">Challenge 11: Lottery Analysis</span>
+<p style="color: #6495ED;">We are going to analyze data from a state lottery
+to see how truly random the number selection is.
+We have a data file with the last twenty years of Pick 4 numbers
+from the Virginia state lottery that we use for our analysis.
+We will read through the data and keep track of how many times
+each number shows up. 
+Finally we will display a report showing the distribution.<br/><br/>
+The format of the DATA_FILE is as follows:</p>
+<pre>
+Results for Pick 4
+12/20/2020; Day: 7,1,5,9; Night: 3,5,9,2
+12/19/2020; Day: 7,7,9,8; Night: 2,9,4,1
+12/18/2020; Day: 8,6,9,7; Night: 9,1,2,6
+...
+10/1/1991; Night: 5,1,5,3
+9/30/1991; Night: 3,3,4,5
+
+All information is entered manually, and is subject to human error.
+Therefore, we can not guarantee the accuracy of this information.
+</pre>
+<p style="color: #6495ED;">Code to read a file in Ruby:</p>
+<pre>
+File.readlines(DATA_FILE).each do |line|
+    line = line.chomp  # remove the carriage return
+    # process the text in line
+end
+</pre>
+<ol style="color: #CCCCFF;">
+<li>Read the data file</li>
+<li>For each line, split up the data into its parts</li>
+<li>Keep track of the number of occurrences for each number</li>
+<li>Display a list of the results</li>
+</ol><span style="color: #40E0D0;">Instruction Library</span><br/>
+<pre><span style="color: #FFBF00;">String</span> <span style="color: #FF7F50;">pad</span>(<span style="color: #FFBF00;">text</span>, <span style="color: #FFBF00;">length</span>)</pre>Pads the text to the given length
