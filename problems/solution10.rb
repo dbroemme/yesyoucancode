@@ -1,5 +1,44 @@
 require_relative 'helpers'  # DO NOT REMOVE THIS LINE
 
+# Array Index  0    1    2    3    4    5    6    7     8     9   10   11   12
+CARD_RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+CARD_VALUE = [ 2,   3,   4,   5,   6,   7,   8,   9,   10,   10,  10,  10,  11]
+CARD_SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+ACE_RANK = 12
+
+class Card
+    # The rank and suit are stored as integers that reference the constant
+    # arrays above when they need to be displayed.
+    attr_accessor :rank
+    attr_accessor :suit
+
+    def initialize(rank, suit)
+        @rank = rank
+        @suit = suit
+    end
+
+    def value
+        CARD_VALUE[@rank]
+    end
+
+    def is_ace
+        @rank == ACE_RANK
+    end
+
+    def display
+        tell_me "#{CARD_RANKS[@rank]} #{CARD_SUITS[@suit]}"
+    end
+end
+
+# Copy your code from challenge 9 here
+# Step 1: Loop through and prompt the user if they
+#         want to hit or stay
+# Step 2: Display their hand each time
+# Step 3: Deal cards for the dealer until they reach
+#         17 or higher         
+# Step 4: Determine and display who won
+#         The solution will just look for the word 'won'
+#         in the output, so indicate who won.
 class Deck
     attr_accessor :cards
 
@@ -45,6 +84,13 @@ class Hand
         @cards.each do |card|
             total = total + card.value
         end
+        @cards.each do |card|
+            if total > 21
+                if card.is_ace
+                    total = total - 10
+                end
+            end
+        end
         total
     end
 
@@ -60,32 +106,32 @@ end
 deck = Deck.new
 deck.shuffle
 
-hand1 = Hand.new("Darren")
-hand2 = Hand.new("Alice")
+dealer_hand = Hand.new("Dealer")
+my_hand = Hand.new("Darren")
 
-hand1.add_card(deck.deal)
-hand2.add_card(deck.deal)
+dealer_hand.add_card(deck.deal)
+my_hand.add_card(deck.deal)
 
-hand1.add_card(deck.deal)
-hand2.add_card(deck.deal)
+dealer_hand.add_card(deck.deal)
+my_hand.add_card(deck.deal)
 
 newline
-hand1.display
+dealer_hand.display
 newline
-hand2.display
+my_hand.display
 
 done = false
 while not done
     newline
     action = ask_me("(H)it or (S)tay?")
     if action == "H"
-        hand2.add_card(deck.deal)
+        my_hand.add_card(deck.deal)
         newline
-        hand2.display
-        if hand2.value > 21
-            tell_me "Sorry, you busted with #{hand1.value}. You went over 21."
+        my_hand.display
+        if my_hand.value > 21
+            tell_me "Sorry, you busted with #{my_hand.value}. You went over 21."
             done = true
-        elsif hand2.value == 21
+        elsif my_hand.value == 21
             tell_me "Congrats, you got 21!"
             done = true
         else
@@ -94,29 +140,37 @@ while not done
         end
             
     elsif action == "S"
-        tell_me("Great, you will stay at #{hand1.value}")
+        tell_me("Great, you will stay at #{my_hand.value}")
         done = true
     else
         tell_me("Sorry, #{action} is not a valid choice.")
     end
 end
 
+# TODO handle the case of over 21 with an Ace
+
 # Now for the dealer
 # The dealer stays on anything 17 or above
 newline
-while hand1.value < 17
-    hand1.add_card(deck.deal)
+while dealer_hand.value < 17
+    dealer_hand.add_card(deck.deal)
     newline
-    hand1.display
-    sleep 3
+    dealer_hand.display
+    sleep 2
 end
 newline
 
 # Figure out who won and display the result
-if hand1.value == hand2.value
-    tell_me "It was a push, nobody won. You and the dealer both had #{hand1.value}."
-elsif hand1.value > hand2.value
-    tell_me "The dealer won. #{hand1.value} beats you #{hand2.value}"
+if dealer_hand.value > 21 and my_hand.value > 21
+    tell_me "You both busted, nobody won."
+elsif dealer_hand.value > 21
+    tell_me "You won, the dealer busted."
+elsif my_hand.value > 21
+    tell_me "The dealer won, you busted."
+elsif dealer_hand.value == my_hand.value
+    tell_me "It was a push, nobody won. You and the dealer both had #{dealer_hand.value}."
+elsif dealer_hand.value > my_hand.value
+    tell_me "The dealer won. #{dealer_hand.value} beats your #{my_hand.value}"
 else
-    tell_me "You won! #{hand2.value} beats the dealer's #{hand1.value}"
+    tell_me "You won! Your #{my_hand.value} beats the dealer's #{dealer_hand.value}"
 end
