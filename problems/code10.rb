@@ -38,13 +38,15 @@ class Card
     end
 end
 
-# Step 1: Create an instance of a Deck of cards
-
-# Step 2: Shuffle the deck
-
-# Step 3: Deal two cards to each player
-
-# Step 4: Display the hands
+# Copy your code from challenge 9 here
+# Step 1: Loop through and prompt the user if they
+#         want to hit or stay
+# Step 2: Display their hand each time
+# Step 3: Deal cards for the dealer until they reach
+#         17 or higher         
+# Step 4: Determine and display who won
+#         The solution will just look for the word 'won'
+#         in the output, so indicate who won.
 class Deck
     attr_accessor :cards
 
@@ -105,32 +107,32 @@ end
 deck = Deck.new
 deck.shuffle
 
-hand1 = Hand.new("Dealer")
-hand2 = Hand.new("Darren")
+dealer_hand = Hand.new("Dealer")
+my_hand = Hand.new("Darren")
 
-hand1.add_card(deck.deal)
-hand2.add_card(deck.deal)
+dealer_hand.add_card(deck.deal)
+my_hand.add_card(deck.deal)
 
-hand1.add_card(deck.deal)
-hand2.add_card(deck.deal)
+dealer_hand.add_card(deck.deal)
+my_hand.add_card(deck.deal)
 
 newline
-hand1.display
+dealer_hand.display
 newline
-hand2.display
+my_hand.display
 
 done = false
 while not done
     newline
     action = ask_me("(H)it or (S)tay?")
     if action == "H"
-        hand2.add_card(deck.deal)
+        my_hand.add_card(deck.deal)
         newline
-        hand2.display
-        if hand2.value > 21
-            tell_me "Sorry, you busted with #{hand1.value}. You went over 21."
+        my_hand.display
+        if my_hand.value > 21
+            tell_me "Sorry, you busted with #{my_hand.value}. You went over 21."
             done = true
-        elsif hand2.value == 21
+        elsif my_hand.value == 21
             tell_me "Congrats, you got 21!"
             done = true
         else
@@ -139,7 +141,7 @@ while not done
         end
             
     elsif action == "S"
-        tell_me("Great, you will stay at #{hand1.value}")
+        tell_me("Great, you will stay at #{my_hand.value}")
         done = true
     else
         tell_me("Sorry, #{action} is not a valid choice.")
@@ -151,22 +153,33 @@ end
 # Now for the dealer
 # The dealer stays on anything 17 or above
 newline
-while hand1.value < 17
-    hand1.add_card(deck.deal)
+while dealer_hand.value < 17
+    dealer_hand.add_card(deck.deal)
     newline
-    hand1.display
-    sleep 3
+    dealer_hand.display
+    sleep 2
 end
 newline
 
 # Figure out who won and display the result
-if hand1.value == hand2.value
-    tell_me "It was a push. You and the deal both had #{hand1.value}."
-elsif hand1.value > hand2.value
-    tell_me "The dealer won. #{hand1.value} beats you #{hand2.value}"
+if dealer_hand.value > 21 and my_hand.value > 21
+    tell_me "You both busted, nobody won."
+elsif dealer_hand.value > 21
+    tell_me "You won, the dealer busted."
+elsif my_hand.value > 21
+    tell_me "The dealer won, you busted."
+elsif dealer_hand.value == my_hand.value
+    tell_me "It was a push, nobody won. You and the dealer both had #{dealer_hand.value}."
+elsif dealer_hand.value > my_hand.value
+    tell_me "The dealer won. #{dealer_hand.value} beats your #{my_hand.value}"
 else
-    tell_me "You won! #{hand2.value} beats the dealer's #{hand1.value}"
+    tell_me "You won! Your #{my_hand.value} beats the dealer's #{dealer_hand.value}"
 end
+
+
+
+
+
 
 
 
