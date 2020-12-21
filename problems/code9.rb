@@ -25,7 +25,6 @@ class Card
     end
 
     def value
-        # TODO Deal with an Ace which could be 1 or 11
         CARD_VALUE[@rank]
     end
 
@@ -118,57 +117,4 @@ newline
 hand1.display
 newline
 hand2.display
-
-done = false
-while not done
-    newline
-    action = ask_me("(H)it or (S)tay?")
-    if action == "H"
-        hand2.add_card(deck.deal)
-        newline
-        hand2.display
-        if hand2.value > 21
-            tell_me "Sorry, you busted with #{hand1.value}. You went over 21."
-            done = true
-        elsif hand2.value == 21
-            tell_me "Congrats, you got 21!"
-            done = true
-        else
-            # The player is under 21, so they still have
-            # the option to hit again if they want.
-        end
-            
-    elsif action == "S"
-        tell_me("Great, you will stay at #{hand1.value}")
-        done = true
-    else
-        tell_me("Sorry, #{action} is not a valid choice.")
-    end
-end
-
-# TODO handle the case of over 21 with an Ace
-
-# Now for the dealer
-# The dealer stays on anything 17 or above
-newline
-while hand1.value < 17
-    hand1.add_card(deck.deal)
-    newline
-    hand1.display
-    sleep 3
-end
-newline
-
-# Figure out who won and display the result
-if hand1.value == hand2.value
-    tell_me "It was a push. You and the deal both had #{hand1.value}."
-elsif hand1.value > hand2.value
-    tell_me "The dealer won. #{hand1.value} beats you #{hand2.value}"
-else
-    tell_me "You won! #{hand2.value} beats the dealer's #{hand1.value}"
-end
-
-
-
-
 
