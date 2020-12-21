@@ -101,8 +101,6 @@ while not done
     end
 end
 
-# TODO handle the case of over 21 with an Ace
-
 # Now for the dealer
 # The dealer stays on anything 17 or above
 newline
